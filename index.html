@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AM PRODUCTIONS — Film • Graphics • Games</title>
+  <meta name="description" content="AM PRODUCTIONS — cinematic film graphics, VFX and game production studio." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- three.js from CDN -->
+  <script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="page">
+
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="brand" aria-hidden="true">
+          <div class="brand-mark" id="brandMark"></div>
+          <div class="brand-text"><span>AM</span> PRODUCTIONS</div>
+        </div>
+
+        <nav id="navLinks" class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <svg viewBox="0 0 100 80" width="28" height="22"><rect width="100" height="12" rx="6"></rect><rect y="30" width="100" height="12" rx="6"></rect><rect y="60" width="100" height="12" rx="6"></rect></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE NAV (slides from top) -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">
+          <span class="line line-1">We craft</span>
+          <span class="line line-2">Cinematic</span>
+          <span class="line line-3">Worlds</span>
+        </h1>
+        <p class="hero-sub">AM PRODUCTIONS — Film graphics, cinematic VFX & game cinematics. Studio-quality visuals, boutique attention.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#work">Showreel</a>
+          <a class="btn btn-outline" href="#contact">Get a Quote</a>
+        </div>
+
+        <div class="trust">Remote & on-site — Available for indie and studio projects</div>
+      </div>
+
+      <div class="hero-right">
+        <!-- 3D canvas -->
+        <div id="threeWrap" class="three-wrap" aria-hidden="true"></div>
+
+        <!-- small overlay play -->
+        <button id="showreelBtn" class="play-btn">▶ Showreel</button>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section services">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">End-to-end production: concept, assets, VFX, cinematic trailers & game cinematics.</p>
+
+        <div class="services-grid">
+          <div class="service-card" data-anim="up">
+            <div class="sc-ico">🎬</div>
+            <h3>Film Graphics & Titles</h3>
+            <p>Title sequences, motion design and cinematic launch spots.</p>
+          </div>
+
+          <div class="service-card" data-anim="up" style="--delay:.08s">
+            <div class="sc-ico">🎮</div>
+            <h3>Game Cinematics</h3>
+            <p>Gameplay trailers, cinematics and engine-ready assets.</p>
+          </div>
+
+          <div class="service-card" data-anim="up" style="--delay:.16s">
+            <div class="sc-ico">🛠️</div>
+            <h3>VFX & Compositing</h3>
+            <p>Set extension, simulation integration, cleanup and grading.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK / PORTFOLIO -->
+    <section id="work" class="section work">
+      <div class="container">
+        <div class="work-head">
+          <h2 class="section-title">Recent Work</h2>
+          <p class="section-sub">Click any card to play the reel.</p>
+        </div>
+
+        <div class="grid work-grid" id="portfolioGrid">
+          <!-- JS injects cards with play -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO MODAL -->
+    <div id="videoModal" class="video-modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="video-inner">
+        <button id="modalClose" class="modal-close" aria-label="Close video">✕</button>
+        <div id="videoHolder" class="video-holder"></div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2 class="section-title">About AM PRODUCTIONS</h2>
+          <p>We are a boutique studio blending cinematic craft with technical art. Directors, VFX artists, technical animators — shipping polished visuals on time.</p>
+          <ul>
+            <li>Pipeline-first, delivery-focused</li>
+            <li>Realtime + offline workflows</li>
+            <li>Small-batch, high-quality pricing</li>
+          </ul>
+        </div>
+        <div class="about-visual">
+          <img src="media/team-photo.jpg" alt="Team" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Get in touch</h2>
+          <p class="section-sub">Share a brief: budget, timeline, and deliverables — we reply fast.</p>
+          <div class="contact-info">
+            <div><strong>Email</strong> hello@amproductions.example</div>
+            <div><strong>Location</strong> Remote / On-site (by request)</div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form" aria-label="Contact form">
+          <input id="cname" type="text" placeholder="Name" required />
+          <input id="cemail" type="email" placeholder="Email" required />
+          <textarea id="cmessage" rows="5" placeholder="Project details / Budget / Timeline" required></textarea>
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <div class="small-note">Or email: <a href="mailto:hello@amproductions.example">hello@amproductions.example</a></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>© <span id="year"></span> AM PRODUCTIONS</div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
